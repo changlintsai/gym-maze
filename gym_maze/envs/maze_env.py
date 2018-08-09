@@ -71,7 +71,7 @@ class MazeEnv(gym.Env):
         self.observation_space = spaces.Box(low=0, high=630, shape=(6,))  # not sure what to put as observation, yet
 
         self.step_count = 0
-        self.step_max = 1000
+        self.step_max = 3000
         self.observation = np.array([0, 1, 1, 1, 30, 630])  # not sure if this is right(observe four walls: U, R, B, L))
 
         self.seed()
