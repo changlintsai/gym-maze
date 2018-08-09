@@ -162,6 +162,9 @@ class MazeEnv(gym.Env):
                     line.setWidth(3)
                     line.setOutline(color_rgb(255, 255, 0))
                     line.draw(self.mouseMap)
+                    
+    def close_map(self):
+        self.mouseMap.close()
 
     def reset(self):
         self.x_move = 0
