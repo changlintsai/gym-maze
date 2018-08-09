@@ -88,7 +88,7 @@ class MazeEnv(gym.Env):
         self.x_move = 0
         self.y_move = 0
         done = False
-        reward = 1
+        reward = 0
 
         if action == 0 and self.above_wall == 0:  # up
             self.y_move = -40
@@ -112,21 +112,21 @@ class MazeEnv(gym.Env):
 
         # this part could contain a bug, the boolean statements could be imprecise
         if self.x_coord == 30 or self.x_coord == 630 or self.y_coord == 30 or self.y_coord == 630:
-            reward = 1
+            reward = 0.1
         elif self.x_coord == 70 or self.x_coord == 590 or self.y_coord == 70 or self.y_coord == 590:
-            reward = 2
+            reward = 0.2
         elif self.x_coord == 110 or self.x_coord == 550 or self.y_coord == 110 or self.y_coord == 550:
-            reward = 3
+            reward = 0.3
         elif self.x_coord == 150 or self.x_coord == 510 or self.y_coord == 150 or self.y_coord == 510:
-            reward = 4
+            reward = 0.4
         elif self.x_coord == 190 or self.x_coord == 470 or self.y_coord == 190 or self.y_coord == 470:
-            reward = 5
+            reward = 0.5
         elif self.x_coord == 230 or self.x_coord == 430 or self.y_coord == 230 or self.y_coord == 430:
-            reward = 6
+            reward = 0.6
         elif self.x_coord == 270 or self.x_coord == 390 or self.y_coord == 270 or self.y_coord == 390:
-            reward = 7
+            reward = 0.7
         elif self.x_coord == 310 or self.x_coord == 350 or self.y_coord == 310 or self.y_coord == 350:
-            reward = 8
+            reward = 0.8
             done = True
 
         self.observation = np.array([self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.x_coord, self.y_coord])
