@@ -180,4 +180,4 @@ class MazeEnv(gym.Env):
         self.bot.setWidth(3)
         self.bot.draw(self.mouseMap)
         
-return self.observation # don't know why
+        return self.observation # don't know why
