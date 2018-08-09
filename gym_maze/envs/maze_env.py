@@ -88,7 +88,7 @@ class MazeEnv(gym.Env):
         self.x_move = 0
         self.y_move = 0
         done = False
-        reward = 0
+        reward = 1
 
         if action == 0 and self.above_wall == 0:  # up
             self.y_move = -40
