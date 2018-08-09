@@ -4,7 +4,7 @@ register(
     id='maze-v0',
     entry_point='gym_maze.envs:MazeEnv',
 )
-register(
+'''register(
     id='maze-extrahard-v0',
     entry_point='gym_maze.envs:MazeExtraHardEnv',
-)
+)'''
