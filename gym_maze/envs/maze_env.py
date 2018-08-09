@@ -4,7 +4,7 @@ from gym.utils import seeding
 from graphics import *
 import numpy as np
 
-class MazeRunner(gym.Env):
+class MazeEnv(gym.Env):
     def __init__(self):
         self.vertical_0 = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         self.vertical_1 = [0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]  # from top to bottom
