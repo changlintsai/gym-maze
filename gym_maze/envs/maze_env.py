@@ -133,8 +133,6 @@ class MazeEnv(gym.Env):
         self.step_count += 1
         if self.step_count > self.step_max:
             done = True
-            
-        print(self.step_count)
 
         return self.observation, reward, done
 
