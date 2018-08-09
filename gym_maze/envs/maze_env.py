@@ -111,25 +111,25 @@ class MazeEnv(gym.Env):
         self.bot.move(self.x_move, self.y_move)
 
         # this part could contain a bug, the boolean statements could be imprecise
-        if self.virtual_x == 30 or self.virtual_x == 630 or self.virtual_y == 30 or self.virtual_y == 630:
+        if self.x_coord == 30 or self.x_coord == 630 or self.y_coord == 30 or self.y_coord == 630:
             reward = 1
-        elif self.virtual_x == 70 or self.virtual_x == 590 or self.virtual_y == 70 or self.virtual_y == 590:
+        elif self.x_coord == 70 or self.x_coord == 590 or self.y_coord == 70 or self.y_coord == 590:
             reward = 2
-        elif self.virtual_x == 110 or self.virtual_x == 550 or self.virtual_y == 110 or self.virtual_y == 550:
+        elif self.x_coord == 110 or self.x_coord == 550 or self.y_coord == 110 or self.y_coord == 550:
             reward = 3
-        elif self.virtual_x == 150 or self.virtual_x == 510 or self.virtual_y == 150 or self.virtual_y == 510:
+        elif self.x_coord == 150 or self.x_coord == 510 or self.y_coord == 150 or self.y_coord == 510:
             reward = 4
-        elif self.virtual_x == 190 or self.virtual_x == 470 or self.virtual_y == 190 or self.virtual_y == 470:
+        elif self.x_coord == 190 or self.x_coord == 470 or self.y_coord == 190 or self.y_coord == 470:
             reward = 5
-        elif self.virtual_x == 230 or self.virtual_x == 430 or self.virtual_y == 230 or self.virtual_y == 430:
+        elif self.x_coord == 230 or self.x_coord == 430 or self.y_coord == 230 or self.y_coord == 430:
             reward = 6
-        elif self.virtual_x == 270 or self.virtual_x == 390 or self.virtual_y == 270 or self.virtual_y == 390:
+        elif self.x_coord == 270 or self.x_coord == 390 or self.y_coord == 270 or self.y_coord == 390:
             reward = 7
-        elif self.virtual_x == 310 or self.virtual_x == 350 or self.virtual_y == 310 or self.virtual_y == 350:
+        elif self.x_coord == 310 or self.x_coord == 350 or self.y_coord == 310 or self.y_coord == 350:
             reward = 8
             done = True
 
-        self.observation = np.array([self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.virtual_x, self.virtual_y])
+        self.observation = np.array([self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.x_coord, self.y_coord])
         self.step_count += 1
         '''if self.step_count > self.step_max:
             done = True'''
