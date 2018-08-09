@@ -72,7 +72,7 @@ class MazeEnv(gym.Env):
 
         self.step_count = 0
         self.step_max = 1000
-        self.observation = [0, 1, 1, 1, 30, 630]  # not sure if this is right(observe four walls: U, R, B, L))
+        self.observation = np.array([0, 1, 1, 1, 30, 630])  # not sure if this is right(observe four walls: U, R, B, L))
 
         self.seed()
         self.reset()
@@ -137,13 +137,13 @@ class MazeEnv(gym.Env):
         return self.observation, reward, done
 
     def draw_map(self):
-        mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
+        '''mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
         mouseMap.setBackground(color_rgb(50, 50, 50))
 
         bot = Circle(Point(30, 630), 15)  # create bot
         bot.setOutline(color_rgb(255, 255, 255))
         bot.setWidth(3)
-        bot.draw(mouseMap)
+        bot.draw(mouseMap)'''
 
         for j in range(17):
             for i in range(16):
@@ -167,5 +167,13 @@ class MazeEnv(gym.Env):
         self.x_coord = 30
         self.y_coord = 630
         self.step_count = 0
-        self.observation = [0, 1, 1, 1, 30, 630]
+        self.observation = np.array([0, 1, 1, 1, 30, 630])
+        mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
+        mouseMap.setBackground(color_rgb(50, 50, 50))
+
+        bot = Circle(Point(30, 630), 15)  # create bot
+        bot.setOutline(color_rgb(255, 255, 255))
+        bot.setWidth(3)
+        bot.draw(mouseMap)
+        
         return self.observation  # don't know why
