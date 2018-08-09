@@ -151,7 +151,7 @@ class MazeEnv(gym.Env):
                     line = Line(Point(10 + j * 40, 10 + i * 40), Point(10 + j * 40, 50 + i * 40))
                     line.setWidth(3)
                     line.setOutline(color_rgb(255, 255, 0))
-                    line.draw(mouseMap)
+                    line.draw(self.mouseMap)
 
         for k in range(17):
             for l in range(16):
@@ -159,7 +159,7 @@ class MazeEnv(gym.Env):
                     line = Line(Point(10 + l * 40, 10 + k * 40), Point(50 + l * 40, 10 + k * 40))
                     line.setWidth(3)
                     line.setOutline(color_rgb(255, 255, 0))
-                    line.draw(mouseMap)
+                    line.draw(self.mouseMap)
 
     def reset(self):
         self.x_move = 0
@@ -168,12 +168,12 @@ class MazeEnv(gym.Env):
         self.y_coord = 630
         self.step_count = 0
         self.observation = np.array([0, 1, 1, 1, 30, 630])
-        mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
-        mouseMap.setBackground(color_rgb(50, 50, 50))
+        self.mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
+        self.mouseMap.setBackground(color_rgb(50, 50, 50))
 
-        bot = Circle(Point(30, 630), 15)  # create bot
-        bot.setOutline(color_rgb(255, 255, 255))
-        bot.setWidth(3)
-        bot.draw(mouseMap)
+        self.bot = Circle(Point(30, 630), 15)  # create bot
+        self.bot.setOutline(color_rgb(255, 255, 255))
+        self.bot.setWidth(3)
+        self.bot.draw(self.mouseMap)
         
         return self.observation  # don't know why
