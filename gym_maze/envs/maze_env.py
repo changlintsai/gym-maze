@@ -71,7 +71,7 @@ class MazeEnv(gym.Env):
         self.observation_space = spaces.Box(low=0, high=630, shape=(6,))  # not sure what to put as observation, yet
 
         self.step_count = 0
-        self.step_max = 3000
+        self.step_max = 1000
         self.observation = np.array([0, 1, 1, 1, 30, 630])  # not sure if this is right(observe four walls: U, R, B, L))
 
         self.seed()
@@ -133,13 +133,14 @@ class MazeEnv(gym.Env):
         self.step_count += 1
         if self.step_count > self.step_max:
             done = True
+            
+        print(self.step_count)
 
         return self.observation, reward, done
 
     def draw_map(self):
         '''mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
         mouseMap.setBackground(color_rgb(50, 50, 50))
-
         bot = Circle(Point(30, 630), 15)  # create bot
         bot.setOutline(color_rgb(255, 255, 255))
         bot.setWidth(3)
@@ -179,4 +180,4 @@ class MazeEnv(gym.Env):
         self.bot.setWidth(3)
         self.bot.draw(self.mouseMap)
         
-        return self.observation  # don't know why
+return self.observation # don't know why
