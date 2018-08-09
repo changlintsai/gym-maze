@@ -71,7 +71,7 @@ class MazeEnv(gym.Env):
         self.observation_space = spaces.Box(low=0, high=630, shape=(6,))  # not sure what to put as observation, yet
 
         self.step_count = 0
-        self.step_max = 1000
+        #self.step_max = 1000
         self.observation = np.array([0, 1, 1, 1, 30, 630])  # not sure if this is right(observe four walls: U, R, B, L))
 
         self.seed()
@@ -129,10 +129,10 @@ class MazeEnv(gym.Env):
             reward = 8
             done = True
 
-        self.observation = [self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.virtual_x, self.virtual_y]
+        self.observation = np.array([self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.virtual_x, self.virtual_y])
         self.step_count += 1
-        if self.step_count > self.step_max:
-            done = True
+        '''if self.step_count > self.step_max:
+            done = True'''
             
         print(self.step_count)
 
