@@ -112,21 +112,21 @@ class MazeEnv(gym.Env):
 
         # this part could contain a bug, the boolean statements could be imprecise
         if self.virtual_x == 30 or self.virtual_x == 630 or self.virtual_y == 30 or self.virtual_y == 630:
-            reward = 1
+            reward = 0.1
         elif self.virtual_x == 70 or self.virtual_x == 590 or self.virtual_y == 70 or self.virtual_y == 590:
-            reward = 2
+            reward = 0.2
         elif self.virtual_x == 110 or self.virtual_x == 550 or self.virtual_y == 110 or self.virtual_y == 550:
-            reward = 3
+            reward = 0.3
         elif self.virtual_x == 150 or self.virtual_x == 510 or self.virtual_y == 150 or self.virtual_y == 510:
-            reward = 4
+            reward = 0.4
         elif self.virtual_x == 190 or self.virtual_x == 470 or self.virtual_y == 190 or self.virtual_y == 470:
-            reward = 5
+            reward = 0.5
         elif self.virtual_x == 230 or self.virtual_x == 430 or self.virtual_y == 230 or self.virtual_y == 430:
-            reward = 6
+            reward = 0.6
         elif self.virtual_x == 270 or self.virtual_x == 390 or self.virtual_y == 270 or self.virtual_y == 390:
-            reward = 7
+            reward = 0.7
         elif self.virtual_x == 310 or self.virtual_x == 350 or self.virtual_y == 310 or self.virtual_y == 350:
-            reward = 8
+            reward = 0.8
             done = True
 
         self.observation = [self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.virtual_x, self.virtual_y]
