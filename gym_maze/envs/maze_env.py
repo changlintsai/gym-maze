@@ -68,11 +68,11 @@ class MazeEnv(gym.Env):
 
 
         self.action_space = spaces.Discrete(4)  # if action==0, up; 1, down; 2, left; 3, right
-        self.observation_space = spaces.Box(low=0, high=630, shape=(6,))  # not sure what to put as observation, yet
+        self.observation_space = spaces.Box(low=0, high=15, shape=(2,))  # not sure what to put as observation, yet
 
         self.step_count = 0
         #self.step_max = 1000
-        self.observation = np.array([0, 1, 1, 1, 30, 630])  # not sure if this is right(observe four walls: U, R, B, L))
+        self.observation = np.array([0, 15])  # not sure if this is right(observe four walls: U, R, B, L))(virtual coords)
 
         self.seed()
         self.reset()
@@ -129,7 +129,7 @@ class MazeEnv(gym.Env):
             reward = 0.8
             done = True
 
-        self.observation = np.array([self.above_wall, self.right_wall, self.below_wall, self.left_wall, self.x_coord, self.y_coord])
+        self.observation = np.array([self.virtual_x, self.virtual_y])
         self.step_count += 1
         '''if self.step_count > self.step_max:
             done = True'''
@@ -171,7 +171,7 @@ class MazeEnv(gym.Env):
         self.x_coord = 30
         self.y_coord = 630
         self.step_count = 0
-        self.observation = np.array([0, 1, 1, 1, 30, 630])
+        self.observation = np.array([0, 15])
         self.mouseMap = GraphWin("2017 high school maze", 1000, 700)  # create window\canvas
         self.mouseMap.setBackground(color_rgb(50, 50, 50))
 
